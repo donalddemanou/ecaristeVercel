@@ -1,0 +1,9 @@
+# Configuration locale de l'outil Claude Code (spécifique à cette machine)
+.claude/
+
+# Fichiers système
+Thumbs.db
+.DS_Store
+
+# Captures de référence / inspiration (non utilisées par le site, juste du contexte de travail)
+img/
