@@ -3,7 +3,7 @@ $config = require __DIR__ . '/config.php';
 require __DIR__ . '/partials/icons.php';
 
 $pageTitle       = "À propos — ECARISTE Transports & Logistique";
-$pageDescription = "Plus de 15 ans d'expérience dans le transport et la logistique. Découvrez l'équipe et les valeurs d'ECARISTE.";
+$pageDescription = "Découvrez l'histoire, la mission et les valeurs d'ECARISTE, votre partenaire transport et logistique fondé par un commissionnaire agréé de transports en Union européenne.";
 $pagePath        = '/a-propos.php';
 ?>
 <!DOCTYPE html>
@@ -27,12 +27,53 @@ $pagePath        = '/a-propos.php';
         <div class="container why-grid" style="align-items:center;">
             <div>
                 <h2>Notre histoire</h2>
-                <p class="text-muted" style="margin-top:1rem;">Fondée en 2026, ECARISTE Transport &amp; Logistique est née de la vision de Lionel FOPA, passionné par le monde du transport et de la logistique depuis plus de 10 ans, commissionnaire agréé de transports en union européenne. Il a pour ambition de créer une entreprise reconnue pour son expertise nationale et internationale.</p>
-                <p class="text-muted" style="margin-top:1rem;">Au fil des années, nous avons su nous adapter aux évolutions du marché et aux besoins croissants de nos clients, en développant des solutions logistiques innovantes et en élargissant notre réseau de partenaires.</p>
-                <p class="text-muted" style="margin-top:1rem;">Aujourd'hui, ECARISTE c'est une équipe de professionnels dédiés, des milliers d'expéditions réussies et la confiance de centaines d'entreprises partout dans le monde.</p>
+                <p class="text-muted" style="margin-top:1rem;">Fondée en 2026, ECARISTE Transports &amp; Logistique est née de la vision de Lionel FOPA, passionné par le monde du transport et de la logistique depuis plus de 10 ans, commissionnaire agréé de transports en Union européenne. Il a pour ambition de créer une entreprise reconnue pour son expertise nationale et internationale.</p>
+                <p class="text-muted" style="margin-top:1rem;">Dès sa création, ECARISTE s'appuie sur cette expertise pour développer des solutions logistiques innovantes et construire, pas à pas, un réseau de partenaires solide en France et à l'international.</p>
+                <p class="text-muted" style="margin-top:1rem;">Notre ambition : devenir, au fil des expéditions, un partenaire de référence pour les entreprises qui recherchent fiabilité, réactivité et exigence de service.</p>
             </div>
             <div class="photo-placeholder" style="border-radius:var(--radius-md); min-height:320px;">
                 <div><?= icon('warehouse') ?><br>Photo entrepôt ECARISTE (à intégrer)</div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background:var(--gray-50); border-radius:var(--radius-lg);">
+        <div class="container">
+            <div class="section-head section-head--center">
+                <span class="eyebrow"><?= icon('arrow-right') ?> Notre mission</span>
+                <h2>Simplifier votre transport et votre logistique</h2>
+                <p>Offrir à chaque client, quelle que soit sa taille, un accompagnement sur mesure, une réactivité de tous les instants et une exigence constante de qualité — en France comme à l'international.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head section-head--center">
+                <span class="eyebrow"><?= icon('star') ?> Nos valeurs</span>
+                <h2>Ce qui guide notre travail au quotidien</h2>
+            </div>
+            <div class="feature-strip__grid" style="padding:0;">
+                <div class="feature-item">
+                    <?= icon('check') ?>
+                    <h3>Fiabilité</h3>
+                    <p>Ponctualité et rigueur à chaque étape de vos expéditions.</p>
+                </div>
+                <div class="feature-item">
+                    <?= icon('package') ?>
+                    <h3>Sécurité</h3>
+                    <p>Vos marchandises traitées avec le plus grand soin, à chaque kilomètre.</p>
+                </div>
+                <div class="feature-item">
+                    <?= icon('phone') ?>
+                    <h3>Proximité</h3>
+                    <p>Une équipe disponible 6j/7, à l'écoute de vos besoins.</p>
+                </div>
+                <div class="feature-item">
+                    <?= icon('monitor') ?>
+                    <h3>Innovation</h3>
+                    <p>Suivi GPS, TMS intégré et dématérialisation au service de votre tranquillité.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -41,9 +82,9 @@ $pagePath        = '/a-propos.php';
         <div class="container why-grid">
             <div>
                 <h2>Pourquoi choisir ECARISTE ?</h2>
-                <p class="text-muted" style="margin-top:1rem;">Forts de plus de 15 ans d'expérience dans le transport et la logistique, nous mettons notre expertise au service de votre entreprise. Notre engagement : ponctualité, sécurité et satisfaction client.</p>
+                <p class="text-muted" style="margin-top:1rem;">Forts de l'expertise de plus de 10 ans de notre fondateur dans le transport et la logistique, nous mettons cette exigence au service de votre entreprise dès aujourd'hui. Notre engagement : ponctualité, sécurité et satisfaction client.</p>
                 <ul class="why-list">
-                    <li><?= icon('check') ?><span>Plus de 15 ans d'expérience dans le transport</span></li>
+                    <li><?= icon('check') ?><span>Commissionnaire agréé de transports en Union européenne</span></li>
                     <li><?= icon('check') ?><span>Réseau de partenaires en France et à l'international</span></li>
                     <li><?= icon('check') ?><span>Suivi en temps réel de vos expéditions</span></li>
                     <li><?= icon('check') ?><span>Équipe dédiée et réactive 6j/7</span></li>

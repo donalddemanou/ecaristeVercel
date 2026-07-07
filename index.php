@@ -34,7 +34,7 @@ $pagePath        = '/index.php';
                 <div class="hero__badges">
                     <div class="hero-badge">
                         <?= icon('star') ?>
-                        <div><strong>+15 ans</strong><span>d'expérience terrain</span></div>
+                        <div><strong>Agréé UE</strong><span>commissionnaire de transports</span></div>
                     </div>
                     <div class="hero-badge">
                         <?= icon('check') ?>
@@ -110,9 +110,9 @@ $pagePath        = '/index.php';
             </div>
             <div class="why-grid">
                 <div>
-                    <p class="text-muted">Forts de plus de 15 ans d'expérience dans le transport et la logistique, nous mettons notre expertise au service de votre entreprise. Notre engagement : ponctualité, sécurité et satisfaction client.</p>
+                    <p class="text-muted">Forts de l'expertise de plus de 10 ans de notre fondateur dans le transport et la logistique, nous mettons cette exigence au service de votre entreprise dès aujourd'hui. Notre engagement : ponctualité, sécurité et satisfaction client.</p>
                     <ul class="why-list">
-                        <li><?= icon('check') ?><span>Plus de 15 ans d'expérience dans le transport</span></li>
+                        <li><?= icon('check') ?><span>Commissionnaire agréé de transports en Union européenne</span></li>
                         <li><?= icon('check') ?><span>Réseau de partenaires en France et à l'international</span></li>
                         <li><?= icon('check') ?><span>Suivi en temps réel de vos expéditions</span></li>
                         <li><?= icon('check') ?><span>Équipe dédiée et réactive 6j/7</span></li>
