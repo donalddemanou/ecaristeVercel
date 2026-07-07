@@ -2,7 +2,7 @@
 $config = require __DIR__ . '/config.php';
 require __DIR__ . '/partials/icons.php';
 
-$pageTitle       = "ECARISTE — Transport & Logistique en France et à l'international";
+$pageTitle       = "ECARISTE — Transports & Logistique en France et à l'international";
 $pageDescription = $config['default_description'];
 $pagePath        = '/index.php';
 ?>

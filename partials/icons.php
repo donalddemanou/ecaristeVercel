@@ -37,11 +37,3 @@ function icon(string $name, string $class = ''): string
 
     return '<svg class="icon ' . htmlspecialchars($class) . '" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $body . '</svg>';
 }
-
-function logoMark(string $class = ''): string
-{
-    return '<svg class="logo-mark ' . htmlspecialchars($class) . '" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-        <polygon points="2,4 26,4 38,16 26,28 2,28 12,16"/>
-        <polygon points="2,20 30,20 44,32 30,44 2,44 14,32" opacity="0.85"/>
-    </svg>';
-}

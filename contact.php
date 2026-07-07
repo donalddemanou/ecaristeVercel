@@ -2,7 +2,7 @@
 $config = require __DIR__ . '/config.php';
 require __DIR__ . '/partials/icons.php';
 
-$pageTitle       = "Contact — ECARISTE Transport & Logistique";
+$pageTitle       = "Contact — ECARISTE Transports & Logistique";
 $pageDescription = "Contactez ECARISTE pour un devis personnalisé ou une solution logistique sur mesure. Téléphone, e-mail et formulaire de contact.";
 $pagePath        = '/contact.php';
 

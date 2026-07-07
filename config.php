@@ -7,9 +7,9 @@
 
 return [
     'site_name'        => 'ECARISTE',
-    'site_baseline'    => 'Transport & Logistique',
+    'site_baseline'    => 'Transports & Logistique',
     'site_url'         => 'https://www.ecariste.com',
-    'default_title'    => 'ECARISTE — Transport & Logistique en France et à l\'international',
+    'default_title'    => 'ECARISTE — Transports & Logistique en France et à l\'international',
     'default_description' => 'ECARISTE vous propose des solutions sur mesure pour le transport de marchandises, la logistique et l\'affrètement en France et à l\'international.',
 
     'contact' => [

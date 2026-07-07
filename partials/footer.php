@@ -18,11 +18,7 @@
     <div class="container footer-grid">
         <div class="footer-col footer-col--about">
             <a href="/index.php" class="logo logo--footer">
-                <?= logoMark('logo-mark--white') ?>
-                <span class="logo__text">
-                    <span class="logo__name">ECARISTE</span>
-                    <span class="logo__baseline"><?= htmlspecialchars($config['site_baseline']) ?></span>
-                </span>
+                <img src="/assets/img/logo-white.png" alt="<?= htmlspecialchars($config['site_name'] . ' — ' . $config['site_baseline']) ?>" class="logo__image">
             </a>
             <p>Votre partenaire de confiance pour le transport de marchandises et la logistique. Expertise nationale et internationale au service de votre entreprise.</p>
             <div class="social-links">

@@ -3,12 +3,8 @@ $currentPage = basename($_SERVER['SCRIPT_NAME']);
 ?>
 <header class="site-header">
     <div class="container site-header__inner">
-        <a href="/index.php" class="logo" aria-label="<?= htmlspecialchars($config['site_name']) ?> — Accueil">
-            <?= logoMark('logo-mark--navy') ?>
-            <span class="logo__text">
-                <span class="logo__name"><?= htmlspecialchars($config['site_name']) ?></span>
-                <span class="logo__baseline"><?= htmlspecialchars($config['site_baseline']) ?></span>
-            </span>
+        <a href="/index.php" class="logo">
+            <img src="/assets/img/logo.png" alt="<?= htmlspecialchars($config['site_name'] . ' — ' . $config['site_baseline']) ?>" class="logo__image">
         </a>
 
         <nav class="main-nav" aria-label="Navigation principale">

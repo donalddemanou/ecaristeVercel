@@ -2,7 +2,7 @@
 $config = require __DIR__ . '/config.php';
 require __DIR__ . '/partials/icons.php';
 
-$pageTitle       = "Actualités — ECARISTE Transport & Logistique";
+$pageTitle       = "Actualités — ECARISTE Transports & Logistique";
 $pageDescription = "Les actualités et l'actualité du secteur du transport et de la logistique par ECARISTE.";
 $pagePath        = '/actualites.php';
 

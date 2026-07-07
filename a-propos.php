@@ -2,7 +2,7 @@
 $config = require __DIR__ . '/config.php';
 require __DIR__ . '/partials/icons.php';
 
-$pageTitle       = "À propos — ECARISTE Transport & Logistique";
+$pageTitle       = "À propos — ECARISTE Transports & Logistique";
 $pageDescription = "Plus de 15 ans d'expérience dans le transport et la logistique. Découvrez l'équipe et les valeurs d'ECARISTE.";
 $pagePath        = '/a-propos.php';
 ?>

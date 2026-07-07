@@ -3,7 +3,7 @@ $config = require __DIR__ . '/config.php';
 require __DIR__ . '/partials/icons.php';
 
 $pageTitle       = "Mentions légales — ECARISTE";
-$pageDescription = "Mentions légales du site ECARISTE Transport & Logistique.";
+$pageDescription = "Mentions légales du site ECARISTE Transports & Logistique.";
 $pagePath        = '/mentions-legales.php';
 ?>
 <!DOCTYPE html>
