@@ -19,9 +19,8 @@ $pagePath        = '/index.php';
     <section class="hero">
         <div class="container">
             <div class="hero__inner">
-                <div class="hero__bg-photo photo-placeholder" aria-hidden="true">
-                    <div><?= icon('truck') ?><br>Photo flotte ECARISTE (à intégrer)</div>
-                </div>
+                <img src="/assets/img/hero.jpg" alt="" class="hero__bg-photo" aria-hidden="true">
+                <div class="hero__overlay" aria-hidden="true"></div>
                 <div class="hero__content">
                     <span class="eyebrow"><?= icon('star') ?> Votre partenaire logistique</span>
                     <h1>Votre partenaire de confiance en <mark>transport</mark> et <mark>logistique</mark></h1>

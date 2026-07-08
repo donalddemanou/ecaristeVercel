@@ -28,7 +28,8 @@ $pagePath        = '/services.php';
             <div class="service-cards">
                 <?php foreach ($config['services'] as $i => $service): ?>
                     <article class="service-card" id="<?= htmlspecialchars($service['slug']) ?>">
-                        <div class="service-card__media photo-placeholder">
+                        <div class="service-card__media">
+                            <img src="/assets/img/services/<?= htmlspecialchars($service['slug']) ?>.jpg" alt="<?= htmlspecialchars($service['title']) ?>" loading="lazy">
                             <?= icon($service['icon']) ?>
                             <span><?= htmlspecialchars($service['title']) ?></span>
                         </div>

@@ -31,9 +31,7 @@ $pagePath        = '/a-propos.php';
                 <p class="text-muted" style="margin-top:1rem;">Dès sa création, ECARISTE s'appuie sur cette expertise pour développer des solutions logistiques innovantes et construire, pas à pas, un réseau de partenaires solide en France et à l'international.</p>
                 <p class="text-muted" style="margin-top:1rem;">Notre ambition : devenir, au fil des expéditions, un partenaire de référence pour les entreprises qui recherchent fiabilité, réactivité et exigence de service.</p>
             </div>
-            <div class="photo-placeholder" style="border-radius:var(--radius-md); min-height:320px;">
-                <div><?= icon('warehouse') ?><br>Photo entrepôt ECARISTE (à intégrer)</div>
-            </div>
+            <img src="/assets/img/about-histoire.jpg" alt="Entrepôt ECARISTE" class="img-cover" style="border-radius:var(--radius-md); height:320px;">
         </div>
     </section>
 
