@@ -25,19 +25,19 @@ $pagePath        = '/a-propos.php';
 
     <section>
         <div class="container why-grid" style="align-items:center;">
-            <div>
+            <div class="reveal reveal--left">
                 <h2>Notre histoire</h2>
                 <p class="text-muted" style="margin-top:1rem;">Fondée en 2026, ECARISTE Transports &amp; Logistique est née de la vision de Lionel FOPA, passionné par le monde du transport et de la logistique depuis plus de 10 ans, commissionnaire agréé de transports en Union européenne. Il a pour ambition de créer une entreprise reconnue pour son expertise nationale et internationale.</p>
                 <p class="text-muted" style="margin-top:1rem;">Dès sa création, ECARISTE s'appuie sur cette expertise pour développer des solutions logistiques innovantes et construire, pas à pas, un réseau de partenaires solide en France et à l'international.</p>
                 <p class="text-muted" style="margin-top:1rem;">Notre ambition : devenir, au fil des expéditions, un partenaire de référence pour les entreprises qui recherchent fiabilité, réactivité et exigence de service.</p>
             </div>
-            <img src="/assets/img/about-histoire.jpg" alt="Entrepôt ECARISTE" class="img-cover" style="border-radius:var(--radius-md); height:320px;">
+            <img src="/assets/img/about-histoire.jpg" alt="Entrepôt ECARISTE" class="img-cover reveal reveal--right" style="border-radius:var(--radius-md); height:320px;">
         </div>
     </section>
 
     <section style="background:var(--gray-50); border-radius:var(--radius-lg);">
         <div class="container">
-            <div class="section-head section-head--center">
+            <div class="section-head section-head--center reveal">
                 <span class="eyebrow"><?= icon('arrow-right') ?> Notre mission</span>
                 <h2>Simplifier votre transport et votre logistique</h2>
                 <p>Offrir à chaque client, quelle que soit sa taille, un accompagnement sur mesure, une réactivité de tous les instants et une exigence constante de qualité — en France comme à l'international.</p>
@@ -47,27 +47,27 @@ $pagePath        = '/a-propos.php';
 
     <section>
         <div class="container">
-            <div class="section-head section-head--center">
+            <div class="section-head section-head--center reveal">
                 <span class="eyebrow"><?= icon('star') ?> Nos valeurs</span>
                 <h2>Ce qui guide notre travail au quotidien</h2>
             </div>
             <div class="feature-strip__grid" style="padding:0;">
-                <div class="feature-item">
+                <div class="feature-item reveal" style="transition-delay:0s">
                     <?= icon('check') ?>
                     <h3>Fiabilité</h3>
                     <p>Ponctualité et rigueur à chaque étape de vos expéditions.</p>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item reveal" style="transition-delay:0.08s">
                     <?= icon('package') ?>
                     <h3>Sécurité</h3>
                     <p>Vos marchandises traitées avec le plus grand soin, à chaque kilomètre.</p>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item reveal" style="transition-delay:0.16s">
                     <?= icon('phone') ?>
                     <h3>Proximité</h3>
                     <p>Une équipe disponible 6j/7, à l'écoute de vos besoins.</p>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item reveal" style="transition-delay:0.24s">
                     <?= icon('monitor') ?>
                     <h3>Innovation</h3>
                     <p>Suivi GPS, TMS intégré et dématérialisation au service de votre tranquillité.</p>
@@ -78,7 +78,7 @@ $pagePath        = '/a-propos.php';
 
     <section>
         <div class="container why-grid">
-            <div>
+            <div class="reveal reveal--left">
                 <h2>Pourquoi choisir ECARISTE ?</h2>
                 <p class="text-muted" style="margin-top:1rem;">Forts de l'expertise de plus de 10 ans de notre fondateur dans le transport et la logistique, nous mettons cette exigence au service de votre entreprise dès aujourd'hui. Notre engagement : ponctualité, sécurité et satisfaction client.</p>
                 <ul class="why-list">
@@ -90,7 +90,7 @@ $pagePath        = '/a-propos.php';
                 </ul>
                 <a href="/contact.php" class="btn btn--dark" style="margin-top:1.75rem;">Discuter de votre projet <?= icon('arrow-right') ?></a>
             </div>
-            <div class="why-panel">
+            <div class="why-panel reveal reveal--right">
                 <h3>Nos atouts technologiques</h3>
                 <?php foreach ($config['features'] as $feature): ?>
                     <div class="why-panel__item">
@@ -107,12 +107,12 @@ $pagePath        = '/a-propos.php';
 
     <section style="background:var(--gray-50); border-radius:var(--radius-lg);">
         <div class="container">
-            <div class="section-head section-head--center">
+            <div class="section-head section-head--center reveal">
                 <span class="eyebrow"><?= icon('building') ?> Notre équipe</span>
                 <h2>Une équipe engagée à vos côtés</h2>
                 <p>Des professionnels du transport et de la logistique, formés pour répondre à vos exigences.</p>
             </div>
-            <div class="photo-placeholder" style="border-radius:var(--radius-md); min-height:280px;">
+            <div class="photo-placeholder reveal" style="border-radius:var(--radius-md); min-height:280px;">
                 <div><?= icon('building') ?><br>Photo équipe ECARISTE (à intégrer)</div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <?php $year = date('Y'); ?>
-<section class="cta-band">
+<section class="cta-band reveal reveal--scale">
     <div class="container cta-band__inner">
         <h2>Prêt à expédier avec nous ?</h2>
         <p>Contactez-nous dès aujourd'hui pour un devis personnalisé ou une solution logistique sur mesure.</p>

@@ -88,6 +88,15 @@ return [
         ['icon' => 'doc',     'title' => 'Dématérialisation',   'text' => 'Envoi et réception des factures et CMR par mail'],
     ],
 
+    'gallery' => [
+        ['image' => 'services/transport-national.jpg',      'caption' => 'Notre flotte sur les routes de France'],
+        ['image' => 'services/entreposage.jpg',             'caption' => 'Des entrepôts modernes et sécurisés'],
+        ['image' => 'services/extra-maritime.jpg',           'caption' => 'Transport maritime international'],
+        ['image' => 'services/extra-aerien.jpg',             'caption' => 'Fret aérien express'],
+        ['image' => 'services/livraison-express.jpg',        'caption' => 'Livraison express, rapide et fiable'],
+        ['image' => 'services/affretement.jpg',              'caption' => 'Une équipe à votre écoute'],
+    ],
+
     'testimonials' => [
         ['name' => 'Dupont Industries', 'text' => 'Service de transport exceptionnel. Ponctualité et professionnalisme irréprochables. Je recommande vivement ECARISTE pour toute expédition.'],
         ['name' => 'Martin Distribution', 'text' => 'Nous travaillons avec ECARISTE depuis 5 ans. Leur suivi logistique est exemplaire et leurs solutions d\'affrètement nous ont fait gagner en efficacité.'],

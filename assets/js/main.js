@@ -1,6 +1,24 @@
 (function () {
     'use strict';
 
+    /* Animations au scroll : révèle les éléments .reveal quand ils entrent dans le viewport */
+    var revealEls = document.querySelectorAll('.reveal');
+    if (revealEls.length) {
+        if ('IntersectionObserver' in window) {
+            var revealObserver = new IntersectionObserver(function (entries, obs) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+            revealEls.forEach(function (el) { revealObserver.observe(el); });
+        } else {
+            revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+        }
+    }
+
     /* Menu mobile */
     var navToggle = document.getElementById('navToggle');
     var navList = document.getElementById('mainNavList');
@@ -41,11 +59,13 @@
         });
     }
 
-    /* Carousel témoignages */
-    var track = document.getElementById('testimonialTrack');
-    if (track) {
-        var slides = track.querySelectorAll('.testimonial-slide');
-        var dots = document.querySelectorAll('#testimonialDots button');
+    /* Carousel générique : diaporama avec flèches, points et lecture auto */
+    function initCarousel(options) {
+        var track = document.getElementById(options.trackId);
+        if (!track) return;
+
+        var slides = track.querySelectorAll(options.slideSelector);
+        var dots = document.querySelectorAll(options.dotsSelector);
         var current = 0;
 
         function showSlide(index) {
@@ -58,15 +78,33 @@
             });
         }
 
-        var prevBtn = document.getElementById('testimonialPrev');
-        var nextBtn = document.getElementById('testimonialNext');
+        var prevBtn = document.getElementById(options.prevId);
+        var nextBtn = document.getElementById(options.nextId);
         if (prevBtn) prevBtn.addEventListener('click', function () { showSlide(current - 1); });
         if (nextBtn) nextBtn.addEventListener('click', function () { showSlide(current + 1); });
         dots.forEach(function (dot, i) {
             dot.addEventListener('click', function () { showSlide(i); });
         });
 
-        var autoplay = setInterval(function () { showSlide(current + 1); }, 6000);
+        var autoplay = setInterval(function () { showSlide(current + 1); }, options.autoplayMs || 6000);
         track.addEventListener('mouseenter', function () { clearInterval(autoplay); });
     }
+
+    initCarousel({
+        trackId: 'testimonialTrack',
+        slideSelector: '.testimonial-slide',
+        dotsSelector: '#testimonialDots button',
+        prevId: 'testimonialPrev',
+        nextId: 'testimonialNext',
+        autoplayMs: 6000
+    });
+
+    initCarousel({
+        trackId: 'galleryTrack',
+        slideSelector: '.gallery-slide',
+        dotsSelector: '#galleryDots button',
+        prevId: 'galleryPrev',
+        nextId: 'galleryNext',
+        autoplayMs: 4500
+    });
 })();

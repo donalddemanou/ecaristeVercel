@@ -47,8 +47,8 @@ $pagePath        = '/index.php';
     <!-- Feature strip -->
     <section class="feature-strip">
         <div class="container feature-strip__grid">
-            <?php foreach ($config['features'] as $feature): ?>
-                <div class="feature-item">
+            <?php foreach ($config['features'] as $i => $feature): ?>
+                <div class="feature-item reveal" style="transition-delay: <?= $i * 0.08 ?>s">
                     <?= icon($feature['icon']) ?>
                     <h3><?= htmlspecialchars($feature['title']) ?></h3>
                     <p><?= htmlspecialchars($feature['text']) ?></p>
@@ -61,13 +61,13 @@ $pagePath        = '/index.php';
     <section>
         <div class="container">
             <div class="services-section" style="padding: clamp(2rem, 5vw, 3.5rem);">
-                <div class="section-head">
+                <div class="section-head reveal">
                     <span class="eyebrow"><?= icon('package') ?> Nos services</span>
                     <h2>Des solutions logistiques complètes adaptées à vos besoins</h2>
                     <p>Du transport national à l'entreposage, ECARISTE couvre toute votre chaîne logistique.</p>
                 </div>
 
-                <div class="service-accordion" id="serviceAccordion">
+                <div class="service-accordion reveal" id="serviceAccordion">
                     <?php foreach ($config['services'] as $i => $service): ?>
                         <?php $open = $i === 0; ?>
                         <div class="service-row <?= $open ? 'is-open' : '' ?>">
@@ -100,15 +100,17 @@ $pagePath        = '/index.php';
         </div>
     </section>
 
+  
+
     <!-- Why choose us -->
     <section>
         <div class="container">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <span class="eyebrow"><?= icon('star') ?> Pourquoi ECARISTE</span>
                 <h2>Pourquoi choisir ECARISTE ?</h2>
             </div>
             <div class="why-grid">
-                <div>
+                <div class="reveal reveal--left">
                     <p class="text-muted">Forts de l'expertise de plus de 10 ans de notre fondateur dans le transport et la logistique, nous mettons cette exigence au service de votre entreprise dès aujourd'hui. Notre engagement : ponctualité, sécurité et satisfaction client.</p>
                     <ul class="why-list">
                         <li><?= icon('check') ?><span>Commissionnaire agréé de transports en Union européenne</span></li>
@@ -119,7 +121,7 @@ $pagePath        = '/index.php';
                     </ul>
                     <a href="/a-propos.php" class="btn btn--dark" style="margin-top:1.75rem;">En savoir plus <?= icon('arrow-right') ?></a>
                 </div>
-                <div class="why-panel">
+                <div class="why-panel reveal reveal--right">
                     <h3>Nos atouts technologiques</h3>
                     <?php foreach ($config['features'] as $feature): ?>
                         <div class="why-panel__item">
@@ -138,7 +140,7 @@ $pagePath        = '/index.php';
     <!-- Testimonials -->
     <section>
         <div class="container">
-            <div class="testimonials" style="padding: clamp(2rem, 5vw, 3.5rem);">
+            <div class="testimonials reveal" style="padding: clamp(2rem, 5vw, 3.5rem);">
                 <div class="section-head section-head--center">
                     <span class="eyebrow"><?= icon('star') ?> Ils nous font confiance</span>
                     <h2>Ce que disent nos clients</h2>

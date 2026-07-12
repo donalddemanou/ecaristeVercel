@@ -96,9 +96,10 @@ $preselectedService = $_GET['service'] ?? '';
                 </div>
                 <div class="map-embed">
                     <iframe
-                        src="https://www.openstreetmap.org/export/embed.html?bbox=7.34%2C46.22%2C7.38%2C46.245&layer=mapnik&marker=46.2331%2C7.3606"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2759.972098061498!2d7.365187712644528!3d46.23089957097622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478edc289d88de3f%3A0xf30129f2b72294dc!2sAv.%20de%20Tourbillon%2072%2C%201950%20Sion%2C%20Suisse!5e0!3m2!1sfr!2sca!4v1783470611386!5m2!1sfr!2sca"
                         loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
                         title="Localisation ECARISTE à Sion, Suisse"></iframe>
                 </div>
             </div>
