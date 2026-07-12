@@ -7,3 +7,31 @@ Thumbs.db
 
 # Captures de référence / inspiration (non utilisées par le site, juste du contexte de travail)
 img/
+
+# =========================================================
+# Next.js / Node
+# =========================================================
+/node_modules
+/.pnp
+.pnp.js
+
+# Build
+/.next/
+/out/
+/build
+next-env.d.ts.bak
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environnement (clés d'API, SMTP...)
+.env
+.env*.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
