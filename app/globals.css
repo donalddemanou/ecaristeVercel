@@ -174,6 +174,105 @@ h3, .h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy-900); }
 .nav-toggle[aria-expanded="true"] .nav-toggle__open { display: none; }
 .nav-toggle[aria-expanded="true"] .nav-toggle__close { display: block; }
 
+/* Sélecteur de langue (menu déroulant + drapeaux) */
+.main-nav__lang { display: flex; align-items: center; }
+.lang-dropdown { position: relative; }
+.lang-dropdown__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: none;
+    border: 1px solid var(--gray-200);
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--navy-900);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.lang-dropdown__btn:hover { border-color: var(--gray-300); background: var(--gray-50); }
+.lang-dropdown__chevron { width: 14px; height: 14px; color: var(--gray-400); transition: transform 0.2s ease; }
+.lang-dropdown.is-open .lang-dropdown__chevron { transform: rotate(180deg); }
+.lang-dropdown__menu {
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    right: 0;
+    min-width: 168px;
+    list-style: none;
+    margin: 0;
+    padding: 0.35rem;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    animation: langMenuIn 0.14s ease;
+}
+@keyframes langMenuIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.lang-dropdown__item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0.55rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy-800);
+    cursor: pointer;
+    transition: background-color 0.12s ease;
+}
+.lang-dropdown__item:hover { background: var(--gray-50); }
+.lang-dropdown__item.is-active { background: var(--gray-100); color: var(--navy-900); }
+.lang-dropdown__check { width: 15px; height: 15px; margin-left: auto; color: var(--orange-500); }
+.flag {
+    width: 22px;
+    height: 15px;
+    flex: none;
+    display: inline-block;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+.flag svg { display: block; width: 100%; height: 100%; }
+
+/* Bouton « remonter en haut » */
+.back-to-top {
+    position: fixed;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    z-index: 70;
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--radius-full);
+    background: var(--orange-500);
+    color: var(--white);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.15s ease, visibility 0.2s ease;
+}
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: var(--orange-600); transform: translateY(-2px); }
+.back-to-top svg { width: 22px; height: 22px; transform: rotate(180deg); }
+
 /* =========================================================
    Hero
    ========================================================= */
@@ -643,6 +742,7 @@ h3, .h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy-900); }
     .main-nav__list li { width: 100%; }
     .main-nav__list a:not(.btn) { display: block; padding-block: 0.85rem; border-bottom: 1px solid var(--gray-100); }
     .main-nav__cta { margin-top: 1rem; }
+    .main-nav__lang { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-100); width: 100%; }
 
     .hero-badge span br { display: none; }
     .service-card__points { grid-template-columns: 1fr; }

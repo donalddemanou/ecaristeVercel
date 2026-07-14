@@ -2,14 +2,12 @@
 
 import { useState, type FormEvent } from 'react';
 import { config } from '@/lib/config';
+import type { Dictionary } from '@/lib/i18n';
 import { Icon } from './Icon';
 
-/**
- * Suivi de colis : reproduit le comportement de tracking.js.
- * Le suivi en ligne n'est pas encore branché : on renvoie l'utilisateur vers
- * l'équipe avec son numéro.
- */
-export default function TrackingWidget() {
+/** Suivi de colis : renvoie l'utilisateur vers l'équipe avec son numéro. */
+export default function TrackingWidget({ dict }: { dict: Dictionary }) {
+  const t = dict.tracking;
   const [number, setNumber] = useState('');
   const [submitted, setSubmitted] = useState<string | null>(null);
 
@@ -33,26 +31,24 @@ export default function TrackingWidget() {
         }}
       >
         <div className="container">
-          <h2 style={{ color: 'var(--white)' }}>Suivi de colis</h2>
-          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '520px', margin: '0.75rem auto 0' }}>
-            Suivez votre expédition en temps réel grâce à votre numéro de suivi.
-          </p>
+          <h2 style={{ color: 'var(--white)' }}>{t.title}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '520px', margin: '0.75rem auto 0' }}>{t.text}</p>
 
           <form className="tracking-form" id="trackingForm" onSubmit={handleSubmit}>
             <label htmlFor="trackingNumber" className="sr-only" style={{ position: 'absolute', left: '-9999px' }}>
-              Numéro de suivi
+              {t.label}
             </label>
             <input
               type="text"
               id="trackingNumber"
               name="trackingNumber"
-              placeholder="Entrez votre numéro de suivi (ex: ECR...)"
+              placeholder={t.placeholder}
               autoComplete="off"
               value={number}
               onChange={(e) => setNumber(e.target.value)}
             />
             <button type="submit" className="btn btn--primary">
-              <Icon name="arrow-right" /> Suivre
+              <Icon name="arrow-right" /> {t.submit}
             </button>
           </form>
         </div>
@@ -63,11 +59,10 @@ export default function TrackingWidget() {
           <div className={`tracking-result${hasResult ? ' has-result' : ''}`} id="trackingResult">
             {hasResult ? (
               <>
-                <h3>Numéro {submitted}</h3>
-                <p style={{ marginTop: '0.75rem' }}>
-                  Le suivi en ligne est en cours de mise en place. Contactez notre équipe avec ce numéro pour connaître
-                  le statut de votre expédition :
-                </p>
+                <h3>
+                  {t.resultTitlePrefix} {submitted}
+                </h3>
+                <p style={{ marginTop: '0.75rem' }}>{t.resultText}</p>
                 <p style={{ marginTop: '0.75rem' }}>
                   <a
                     href={`tel:${config.contact.phone_href}`}
@@ -84,7 +79,7 @@ export default function TrackingWidget() {
             ) : (
               <>
                 <Icon name="truck" />
-                <p>Entrez votre numéro de suivi pour suivre votre colis</p>
+                <p>{t.initial}</p>
               </>
             )}
           </div>

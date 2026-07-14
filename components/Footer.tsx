@@ -1,22 +1,23 @@
 import Link from 'next/link';
 import { config } from '@/lib/config';
+import { localizedHref, type Dictionary, type Locale } from '@/lib/i18n';
 import { Icon } from './Icon';
 
-export default function Footer() {
+export default function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const year = new Date().getFullYear();
 
   return (
     <>
       <section className="cta-band reveal reveal--scale">
         <div className="container cta-band__inner">
-          <h2>Prêt à expédier avec nous ?</h2>
-          <p>Contactez-nous dès aujourd&apos;hui pour un devis personnalisé ou une solution logistique sur mesure.</p>
+          <h2>{dict.footer.ctaTitle}</h2>
+          <p>{dict.footer.ctaText}</p>
           <div className="btn-group">
             <a href={`tel:${config.contact.phone_href}`} className="btn btn--primary">
-              <Icon name="phone" /> Demander un devis
+              <Icon name="phone" /> {dict.common.quote}
             </a>
-            <Link href="/contact" className="btn btn--ghost">
-              <Icon name="mail" /> Nous écrire
+            <Link href={localizedHref(locale, '/contact')} className="btn btn--ghost">
+              <Icon name="mail" /> {dict.footer.ctaWrite}
             </Link>
           </div>
         </div>
@@ -25,17 +26,14 @@ export default function Footer() {
       <footer className="site-footer">
         <div className="container footer-grid">
           <div className="footer-col footer-col--about">
-            <Link href="/" className="logo logo--footer">
+            <Link href={localizedHref(locale, '/')} className="logo logo--footer">
               <img
                 src="/assets/img/logo-white.png"
-                alt={`${config.site_name} — ${config.site_baseline}`}
+                alt={`${config.site_name} — ${dict.common.baseline}`}
                 className="logo__image"
               />
             </Link>
-            <p>
-              Votre partenaire de confiance pour le transport de marchandises et la logistique. Expertise nationale et
-              internationale au service de votre entreprise.
-            </p>
+            <p>{dict.footer.aboutText}</p>
             <div className="social-links">
               <a href={config.social.facebook} aria-label="Facebook">
                 <Icon name="facebook" />
@@ -49,28 +47,28 @@ export default function Footer() {
             </div>
           </div>
 
-          <nav className="footer-col" aria-label="Liens rapides">
-            <h3>Liens rapides</h3>
+          <nav className="footer-col" aria-label={dict.footer.quickLinks}>
+            <h3>{dict.footer.quickLinks}</h3>
             <ul>
               {config.nav.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href}>
+                <li key={item.key}>
+                  <Link href={localizedHref(locale, item.href)}>
                     <Icon name="chevron-right" />
-                    {item.label}
+                    {dict.nav[item.key]}
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <nav className="footer-col" aria-label="Nos services">
-            <h3>Services</h3>
+          <nav className="footer-col" aria-label={dict.footer.servicesTitle}>
+            <h3>{dict.footer.servicesTitle}</h3>
             <ul>
               {config.services.map((service) => (
                 <li key={service.slug}>
-                  <Link href={`/services#${service.slug}`}>
+                  <Link href={`${localizedHref(locale, '/services')}#${service.slug}`}>
                     <Icon name="chevron-right" />
-                    {service.title}
+                    {dict.servicesContent[service.slug].title}
                   </Link>
                 </li>
               ))}
@@ -78,7 +76,7 @@ export default function Footer() {
           </nav>
 
           <div className="footer-col">
-            <h3>Contact</h3>
+            <h3>{dict.footer.contactTitle}</h3>
             <ul className="footer-contact">
               <li>
                 <Icon name="pin" />
@@ -96,7 +94,7 @@ export default function Footer() {
               </li>
               <li>
                 <Icon name="clock" />
-                <span>{config.contact.hours}</span>
+                <span>{dict.common.hours}</span>
               </li>
             </ul>
           </div>
@@ -104,11 +102,11 @@ export default function Footer() {
 
         <div className="container footer-bottom">
           <p>
-            &copy; {year} {config.site_name} Transport &amp; Logistique. Tous droits réservés.
+            &copy; {year} {config.site_name} {dict.footer.rights}
           </p>
           <div className="footer-bottom__links">
-            <Link href="/mentions-legales">Mentions légales</Link>
-            <Link href="/confidentialite">Politique de confidentialité</Link>
+            <Link href={localizedHref(locale, '/mentions-legales')}>{dict.footer.legal}</Link>
+            <Link href={localizedHref(locale, '/confidentialite')}>{dict.footer.privacy}</Link>
           </div>
         </div>
       </footer>

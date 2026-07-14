@@ -3,14 +3,16 @@
 import { useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { config } from '@/lib/config';
+import type { Dictionary, Locale } from '@/lib/i18n';
 import { Icon } from './Icon';
 
 const KNOWN_FIELDS = ['name', 'email', 'phone', 'service', 'message'];
 
-export default function ContactForm() {
+export default function ContactForm({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+  const c = dict.contact;
   const searchParams = useSearchParams();
   const preselectedSlug = searchParams.get('service') ?? '';
-  const preselectedTitle = config.services.find((s) => s.slug === preselectedSlug)?.title ?? '';
+  const preselectedTitle = dict.servicesContent[preselectedSlug as keyof typeof dict.servicesContent]?.title ?? '';
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [banner, setBanner] = useState<'success' | 'error' | null>(null);
@@ -58,58 +60,62 @@ export default function ContactForm() {
   return (
     <div className="contact-card">
       <div className={`form-banner form-banner--success${banner === 'success' ? ' is-visible' : ''}`} id="formSuccess">
-        Votre message a bien été envoyé. Nous revenons vers vous très vite !
+        {c.successBanner}
       </div>
       <div className={`form-banner form-banner--error${banner === 'error' ? ' is-visible' : ''}`} id="formError">
-        Une erreur est survenue. Merci de réessayer ou de nous appeler directement.
+        {c.errorBanner}
       </div>
 
       <form id="contactForm" onSubmit={handleSubmit} noValidate>
+        <input type="hidden" name="locale" value={locale} />
         <div className="form-row">
           <div className={`form-group${errors.name ? ' has-error' : ''}`} data-field="name">
-            <label htmlFor="name">Nom complet *</label>
+            <label htmlFor="name">{c.fieldName}</label>
             <input type="text" id="name" name="name" autoComplete="name" required />
             <span className="form-error">{errors.name || ''}</span>
           </div>
           <div className={`form-group${errors.email ? ' has-error' : ''}`} data-field="email">
-            <label htmlFor="email">E-mail *</label>
+            <label htmlFor="email">{c.fieldEmail}</label>
             <input type="email" id="email" name="email" autoComplete="email" required />
             <span className="form-error">{errors.email || ''}</span>
           </div>
         </div>
         <div className="form-row">
           <div className={`form-group${errors.phone ? ' has-error' : ''}`} data-field="phone">
-            <label htmlFor="phone">Téléphone</label>
+            <label htmlFor="phone">{c.fieldPhone}</label>
             <input type="tel" id="phone" name="phone" autoComplete="tel" />
             <span className="form-error">{errors.phone || ''}</span>
           </div>
           <div className={`form-group${errors.service ? ' has-error' : ''}`} data-field="service">
-            <label htmlFor="service">Service concerné</label>
+            <label htmlFor="service">{c.fieldService}</label>
             <select id="service" name="service" defaultValue={preselectedTitle}>
-              <option value="">Sélectionner...</option>
-              {config.services.map((service) => (
-                <option value={service.title} key={service.slug}>
-                  {service.title}
-                </option>
-              ))}
+              <option value="">{c.servicePlaceholder}</option>
+              {config.services.map((service) => {
+                const title = dict.servicesContent[service.slug].title;
+                return (
+                  <option value={title} key={service.slug}>
+                    {title}
+                  </option>
+                );
+              })}
             </select>
             <span className="form-error">{errors.service || ''}</span>
           </div>
         </div>
         <div className={`form-group${errors.message ? ' has-error' : ''}`} data-field="message">
-          <label htmlFor="message">Message *</label>
+          <label htmlFor="message">{c.fieldMessage}</label>
           <textarea id="message" name="message" required></textarea>
           <span className="form-error">{errors.message || ''}</span>
         </div>
 
         {/* Piège anti-spam : invisible pour un humain, souvent rempli par un robot */}
         <div className="form-honeypot" aria-hidden="true">
-          <label htmlFor="website">Ne pas remplir ce champ</label>
+          <label htmlFor="website">{c.honeypotLabel}</label>
           <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
         </div>
 
         <button type="submit" className="btn btn--primary" id="contactSubmit" disabled={submitting}>
-          <Icon name="arrow-right" /> Envoyer le message
+          <Icon name="arrow-right" /> {c.submit}
         </button>
       </form>
     </div>

@@ -1,23 +1,32 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { config } from '@/lib/config';
+import { buildAlternates, getDictionary, isLocale, type Locale } from '@/lib/i18n';
 import { Icon } from '@/components/Icon';
 import ContactForm from '@/components/ContactForm';
 
-export const metadata: Metadata = {
-  title: 'Contact — ECARISTE Transports & Logistique',
-  description:
-    'Contactez ECARISTE pour un devis personnalisé ou une solution logistique sur mesure. Téléphone, e-mail et formulaire de contact.',
-  alternates: { canonical: '/contact' },
-  openGraph: {
-    title: 'Contact — ECARISTE Transports & Logistique',
-    description:
-      'Contactez ECARISTE pour un devis personnalisé ou une solution logistique sur mesure. Téléphone, e-mail et formulaire de contact.',
-    url: '/contact',
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const safe: Locale = isLocale(locale) ? locale : 'fr';
+  const dict = getDictionary(safe);
+  return {
+    title: dict.meta.contact.title,
+    description: dict.meta.contact.description,
+    alternates: buildAlternates(safe, '/contact'),
+    openGraph: { title: dict.meta.contact.title, description: dict.meta.contact.description, url: `/${safe}/contact`, locale: dict.ogLocale },
+  };
+}
 
-export default function ContactPage() {
+export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const safe: Locale = isLocale(locale) ? locale : 'fr';
+  const dict = getDictionary(safe);
+  const c = dict.contact;
+
   return (
     <main>
       <section
@@ -34,19 +43,17 @@ export default function ContactPage() {
             className="eyebrow"
             style={{ background: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.2)', color: 'var(--white)' }}
           >
-            <Icon name="mail" /> Contact
+            <Icon name="mail" /> {c.eyebrow}
           </span>
-          <h2 style={{ color: 'var(--white)', marginTop: '1rem' }}>Contactez-nous</h2>
-          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '560px', margin: '0.75rem auto 0' }}>
-            Une question, un projet de transport ou de logistique ? Notre équipe vous répond rapidement.
-          </p>
+          <h2 style={{ color: 'var(--white)', marginTop: '1rem' }}>{c.title}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '560px', margin: '0.75rem auto 0' }}>{c.text}</p>
         </div>
       </section>
 
       <section>
         <div className="container form-grid">
           <Suspense fallback={<div className="contact-card" />}>
-            <ContactForm />
+            <ContactForm locale={safe} dict={dict} />
           </Suspense>
 
           <div>
@@ -55,7 +62,7 @@ export default function ContactPage() {
                 <li>
                   <Icon name="pin" />
                   <div>
-                    <strong>Adresse</strong>
+                    <strong>{c.infoAddress}</strong>
                     <span>
                       {config.contact.address_line}, {config.contact.address_city}
                     </span>
@@ -64,22 +71,22 @@ export default function ContactPage() {
                 <li>
                   <Icon name="phone" />
                   <div>
-                    <strong>Téléphone</strong>
+                    <strong>{c.infoPhone}</strong>
                     <a href={`tel:${config.contact.phone_href}`}>{config.contact.phone}</a>
                   </div>
                 </li>
                 <li>
                   <Icon name="mail" />
                   <div>
-                    <strong>E-mail</strong>
+                    <strong>{c.infoEmail}</strong>
                     <a href={`mailto:${config.contact.email}`}>{config.contact.email}</a>
                   </div>
                 </li>
                 <li>
                   <Icon name="clock" />
                   <div>
-                    <strong>Horaires</strong>
-                    <span>{config.contact.hours}</span>
+                    <strong>{c.infoHours}</strong>
+                    <span>{dict.common.hours}</span>
                   </div>
                 </li>
               </ul>
@@ -90,7 +97,7 @@ export default function ContactPage() {
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
-                title="Localisation ECARISTE à Sion, Suisse"
+                title={c.mapTitle}
               ></iframe>
             </div>
           </div>
