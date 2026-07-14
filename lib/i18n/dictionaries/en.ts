@@ -1,4 +1,4 @@
-import type { FeatureKey, ServiceSlug } from '@/lib/config';
+import type { FeatureKey, FleetKey, ServiceSlug } from '@/lib/config';
 import type { Dictionary } from './fr';
 
 const en: Dictionary = {
@@ -123,15 +123,18 @@ const en: Dictionary = {
       'Customised solutions for every client',
     ],
     whyPanelTitle: 'Our technological strengths',
-    testimonialsEyebrow: 'They trust us',
-    testimonialsTitle: 'What our clients say',
-    testimonialsText: 'Discover what our clients say about our services',
+    clientsEyebrow: 'They trust us',
+    clientsTitle: 'They trust us',
+    clientsText: 'Manufacturers and distributors who entrust us with their transport every day.',
   },
 
   services: {
     eyebrow: 'Our services',
     title: 'Our services',
     text: 'Complete logistics solutions for all your transport needs.',
+    fleetEyebrow: 'Our fleet',
+    fleetTitle: 'Our means of transport',
+    fleetText: 'A varied fleet to handle every type of goods.',
   },
 
   tracking: {
@@ -294,11 +297,28 @@ const en: Dictionary = {
     demat: { title: 'Paperless processing', text: 'Sending and receiving invoices and CMR by email' },
   } as Record<FeatureKey, { title: string; text: string }>,
 
-  testimonials: [
-    'Exceptional transport service. Impeccable punctuality and professionalism. I highly recommend ECARISTE for any shipment.',
-    'We have been working with ECARISTE for 5 years. Their logistics tracking is exemplary and their chartering solutions have made us more efficient.',
-    'A responsive and attentive team. Express deliveries are always on time. A logistics partner you can trust.',
-  ],
+  fleetContent: {
+    tautliner: {
+      title: 'Curtain-side (Tautliner)',
+      text: 'Curtain-sided trailer for fast side loading and optimal protection of your goods.',
+    },
+    plateau: {
+      title: 'Flatbed',
+      text: 'Flatbed trailer for long, heavy or oversized loads.',
+    },
+    'camion-remorque': {
+      title: 'Truck & trailer',
+      text: 'High capacity for large volumes over long distances.',
+    },
+    fourgon: {
+      title: 'Box van',
+      text: 'Ideal for urban deliveries and light to medium loads.',
+    },
+    'porte-bobines': {
+      title: 'Coil carrier',
+      text: 'Specialised transport of coils and heavy cylindrical loads.',
+    },
+  } as Record<FleetKey, { title: string; text: string }>,
 
   articles: {
     'exemple-article-1': {

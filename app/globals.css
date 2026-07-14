@@ -524,6 +524,57 @@ h3, .h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy-900); }
 /* =========================================================
    Testimonials
    ========================================================= */
+/* Ils nous font confiance (logos clients) */
+.clients { background: var(--gray-50); border-radius: var(--radius-lg); }
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+.client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    min-height: 110px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.client-logo:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.client-logo img { max-width: 100%; max-height: 64px; width: auto; height: auto; object-fit: contain; }
+
+/* Nos moyens de transport (flotte) */
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.fleet-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+.fleet-card__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    min-height: 150px;
+    background: linear-gradient(180deg, #ffffff 0%, var(--gray-50) 100%);
+}
+.fleet-card__media img { max-width: 100%; max-height: 120px; width: auto; height: auto; object-fit: contain; }
+.fleet-card__body { padding: 1.25rem 1.5rem 1.5rem; }
+.fleet-card__body h3 { font-size: 1.05rem; }
+.fleet-card__body p { margin-top: 0.4rem; font-size: 0.92rem; color: var(--gray-600); }
+
 .testimonials { background: var(--gray-50); border-radius: var(--radius-lg); }
 .testimonial-track { position: relative; max-width: 720px; margin-inline: auto; overflow: hidden; }
 .testimonial-slide {
@@ -802,7 +853,11 @@ h3, .h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy-900); }
     .contact-card,
     .info-card,
     .services-section,
+    .clients,
     .testimonials { padding: 1.35rem !important; }
+
+    .clients-grid { grid-template-columns: 1fr 1fr; }
+    .fleet-grid { grid-template-columns: 1fr 1fr; }
 
     .testimonial-slide { padding: 1.5rem; }
 }
@@ -811,6 +866,7 @@ h3, .h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy-900); }
 @media (max-width: 480px) {
     /* Grille des atouts : une seule colonne pour laisser respirer le contenu */
     .feature-strip__grid { grid-template-columns: 1fr; }
+    .fleet-grid { grid-template-columns: 1fr; }
 
     /* Titres un peu plus compacts pour éviter les coupures disgracieuses */
     h1, .h1 { font-size: clamp(1.85rem, 9vw, 2.2rem); }

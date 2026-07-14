@@ -41,7 +41,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
             <Icon name="close" className="nav-toggle__close" />
           </button>
           <ul className={`main-nav__list${navOpen ? ' is-open' : ''}`} id="mainNavList">
-            {config.nav.map((item) => (
+            {config.nav.filter((item) => !item.hidden).map((item) => (
               <li key={item.key}>
                 <Link
                   href={localizedHref(locale, item.href)}

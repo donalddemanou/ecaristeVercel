@@ -4,7 +4,6 @@ import { config } from '@/lib/config';
 import { buildAlternates, getDictionary, isLocale, type Locale } from '@/lib/i18n';
 import { Icon } from '@/components/Icon';
 import ServiceAccordion from '@/components/ServiceAccordion';
-import Testimonials from '@/components/Testimonials';
 
 export async function generateMetadata({
   params,
@@ -149,10 +148,25 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Ils nous font confiance */}
       <section>
         <div className="container">
-          <Testimonials dict={dict} />
+          <div className="clients reveal" style={{ padding: 'clamp(2rem, 5vw, 3.5rem)' }}>
+            <div className="section-head section-head--center">
+              <span className="eyebrow">
+                <Icon name="star" /> {h.clientsEyebrow}
+              </span>
+              <h2>{h.clientsTitle}</h2>
+              <p>{h.clientsText}</p>
+            </div>
+            <div className="clients-grid">
+              {config.clients.map((client) => (
+                <div className="client-logo" key={client.name}>
+                  <img src={`/assets/img/clients/${client.logo}`} alt={client.name} loading="lazy" />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </main>

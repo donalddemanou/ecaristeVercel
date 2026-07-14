@@ -45,9 +45,14 @@ export type ServiceSlug =
 /** Clés d'atouts technologiques (libellés traduits dans les dictionnaires). */
 export type FeatureKey = 'digital' | 'gps' | 'tms' | 'demat';
 
+/** Types de véhicules de la flotte (libellés traduits dans les dictionnaires). */
+export type FleetKey = 'tautliner' | 'plateau' | 'camion-remorque' | 'fourgon' | 'porte-bobines';
+
 export interface NavItem {
   key: NavKey;
   href: string;
+  /** Masque l'entrée dans les menus (la page reste accessible par URL). */
+  hidden?: boolean;
 }
 
 export interface ServiceMeta {
@@ -58,6 +63,16 @@ export interface ServiceMeta {
 export interface FeatureMeta {
   key: FeatureKey;
   icon: IconName;
+}
+
+export interface FleetMeta {
+  key: FleetKey;
+  image: string;
+}
+
+export interface ClientMeta {
+  name: string;
+  logo: string;
 }
 
 export const config = {
@@ -82,7 +97,7 @@ export const config = {
     { key: 'home', href: '/' },
     { key: 'services', href: '/services' },
     { key: 'tracking', href: '/suivi-colis' },
-    { key: 'news', href: '/actualites' },
+    { key: 'news', href: '/actualites', hidden: true },
     { key: 'about', href: '/a-propos' },
     { key: 'contact', href: '/contact' },
   ] as NavItem[],
@@ -103,8 +118,25 @@ export const config = {
     { key: 'demat', icon: 'doc' },
   ] as FeatureMeta[],
 
-  /** Noms des clients (propres, non traduits) ; les textes sont dans les dictionnaires. */
-  testimonialAuthors: ['Dupont Industries', 'Martin Distribution', 'Lambert & Fils'],
+  /** Flotte : type de véhicule + image (libellés traduits dans les dictionnaires). */
+  fleet: [
+    { key: 'tautliner', image: 'tautliner.png' },
+    { key: 'plateau', image: 'plateau.png' },
+    { key: 'camion-remorque', image: 'camion-remorque.png' },
+    { key: 'fourgon', image: 'fourgon.png' },
+    { key: 'porte-bobines', image: 'porte-bobines.png' },
+  ] as FleetMeta[],
+
+  /** Clients (logos) — noms propres, non traduits. */
+  clients: [
+    { name: 'Smurfit Kappa', logo: 'smurfit-kappa.png' },
+    { name: 'Betafence', logo: 'betafence.png' },
+    { name: 'CHEP', logo: 'chep.png' },
+    { name: 'SABP', logo: 'sabp.png' },
+    { name: 'Tousaciers', logo: 'tousaciers.png' },
+    { name: 'Verreries du Brabant', logo: 'verreries-brabant.png' },
+    { name: 'Filaire', logo: 'filaire.png' },
+  ] as ClientMeta[],
 
   /** Articles : slug + date ISO (contenu traduit dans les dictionnaires). */
   articles: [

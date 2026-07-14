@@ -1,4 +1,4 @@
-import type { FeatureKey, ServiceSlug } from '@/lib/config';
+import type { FeatureKey, FleetKey, ServiceSlug } from '@/lib/config';
 
 const fr = {
   localeName: 'Français',
@@ -122,15 +122,18 @@ const fr = {
       'Solutions personnalisées pour chaque client',
     ],
     whyPanelTitle: 'Nos atouts technologiques',
-    testimonialsEyebrow: 'Ils nous font confiance',
-    testimonialsTitle: 'Ce que disent nos clients',
-    testimonialsText: 'Découvrez ce que nos clients disent de nos services',
+    clientsEyebrow: 'Ils nous font confiance',
+    clientsTitle: 'Ils nous font confiance',
+    clientsText: 'Des industriels et distributeurs qui nous confient leurs transports au quotidien.',
   },
 
   services: {
     eyebrow: 'Nos services',
     title: 'Nos services',
     text: 'Des solutions logistiques complètes pour tous vos besoins de transport.',
+    fleetEyebrow: 'Notre flotte',
+    fleetTitle: 'Nos moyens de transport',
+    fleetText: 'Une flotte variée pour répondre à chaque type de marchandise.',
   },
 
   tracking: {
@@ -297,11 +300,28 @@ const fr = {
     demat: { title: 'Dématérialisation', text: 'Envoi et réception des factures et CMR par mail' },
   } as Record<FeatureKey, { title: string; text: string }>,
 
-  testimonials: [
-    'Service de transport exceptionnel. Ponctualité et professionnalisme irréprochables. Je recommande vivement ECARISTE pour toute expédition.',
-    "Nous travaillons avec ECARISTE depuis 5 ans. Leur suivi logistique est exemplaire et leurs solutions d'affrètement nous ont fait gagner en efficacité.",
-    "Une équipe réactive et à l'écoute. Les livraisons express sont toujours à l'heure. Un partenaire logistique de confiance.",
-  ],
+  fleetContent: {
+    tautliner: {
+      title: 'Tautliner bâché',
+      text: 'Semi-remorque bâchée pour un chargement latéral rapide et une protection optimale de vos marchandises.',
+    },
+    plateau: {
+      title: 'Plateau',
+      text: 'Remorque plateau pour les charges longues, lourdes ou hors gabarit.',
+    },
+    'camion-remorque': {
+      title: 'Camion-remorque',
+      text: 'Grande capacité pour vos volumes importants sur longue distance.',
+    },
+    fourgon: {
+      title: 'Fourgon',
+      text: 'Idéal pour les livraisons urbaines et les charges légères à moyennes.',
+    },
+    'porte-bobines': {
+      title: 'Porte-bobines',
+      text: 'Transport spécialisé de bobines et de charges cylindriques lourdes.',
+    },
+  } as Record<FleetKey, { title: string; text: string }>,
 
   articles: {
     'exemple-article-1': {

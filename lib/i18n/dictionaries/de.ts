@@ -1,4 +1,4 @@
-import type { FeatureKey, ServiceSlug } from '@/lib/config';
+import type { FeatureKey, FleetKey, ServiceSlug } from '@/lib/config';
 import type { Dictionary } from './fr';
 
 const de: Dictionary = {
@@ -123,15 +123,18 @@ const de: Dictionary = {
       'Individuelle Lösungen für jeden Kunden',
     ],
     whyPanelTitle: 'Unsere technologischen Stärken',
-    testimonialsEyebrow: 'Sie vertrauen uns',
-    testimonialsTitle: 'Was unsere Kunden sagen',
-    testimonialsText: 'Erfahren Sie, was unsere Kunden über unsere Leistungen sagen',
+    clientsEyebrow: 'Sie vertrauen uns',
+    clientsTitle: 'Sie vertrauen uns',
+    clientsText: 'Industrie- und Handelsunternehmen, die uns täglich ihre Transporte anvertrauen.',
   },
 
   services: {
     eyebrow: 'Unsere Leistungen',
     title: 'Unsere Leistungen',
     text: 'Komplette Logistiklösungen für all Ihre Transportbedürfnisse.',
+    fleetEyebrow: 'Unser Fuhrpark',
+    fleetTitle: 'Unsere Transportmittel',
+    fleetText: 'Ein vielseitiger Fuhrpark für jede Art von Gütern.',
   },
 
   tracking: {
@@ -294,11 +297,28 @@ const de: Dictionary = {
     demat: { title: 'Papierlose Abwicklung', text: 'Versand und Empfang von Rechnungen und CMR per E-Mail' },
   } as Record<FeatureKey, { title: string; text: string }>,
 
-  testimonials: [
-    'Aussergewöhnlicher Transportservice. Tadellose Pünktlichkeit und Professionalität. Ich empfehle ECARISTE für jede Sendung wärmstens.',
-    'Wir arbeiten seit 5 Jahren mit ECARISTE zusammen. Ihre Logistikverfolgung ist vorbildlich und ihre Befrachtungslösungen haben uns effizienter gemacht.',
-    'Ein reaktionsschnelles und aufmerksames Team. Expresslieferungen sind immer pünktlich. Ein Logistikpartner, dem man vertrauen kann.',
-  ],
+  fleetContent: {
+    tautliner: {
+      title: 'Tautliner (Planenauflieger)',
+      text: 'Planensattelauflieger für schnelles seitliches Beladen und optimalen Schutz Ihrer Waren.',
+    },
+    plateau: {
+      title: 'Pritsche',
+      text: 'Pritschenanhänger für lange, schwere oder übergrosse Ladungen.',
+    },
+    'camion-remorque': {
+      title: 'Lastzug',
+      text: 'Hohe Kapazität für grosse Volumen über lange Strecken.',
+    },
+    fourgon: {
+      title: 'Kastenwagen',
+      text: 'Ideal für innerstädtische Lieferungen und leichte bis mittlere Ladungen.',
+    },
+    'porte-bobines': {
+      title: 'Coiltransporter',
+      text: 'Spezialtransport von Coils und schweren zylindrischen Ladungen.',
+    },
+  } as Record<FleetKey, { title: string; text: string }>,
 
   articles: {
     'exemple-article-1': {

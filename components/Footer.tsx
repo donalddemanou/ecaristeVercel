@@ -50,7 +50,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
           <nav className="footer-col" aria-label={dict.footer.quickLinks}>
             <h3>{dict.footer.quickLinks}</h3>
             <ul>
-              {config.nav.map((item) => (
+              {config.nav.filter((item) => !item.hidden).map((item) => (
                 <li key={item.key}>
                   <Link href={localizedHref(locale, item.href)}>
                     <Icon name="chevron-right" />

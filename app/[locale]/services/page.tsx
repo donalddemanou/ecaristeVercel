@@ -85,6 +85,35 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
           </div>
         </div>
       </section>
+
+      {/* Nos moyens de transport */}
+      <section style={{ background: 'var(--gray-50)', borderRadius: 'var(--radius-lg)' }}>
+        <div className="container">
+          <div className="section-head section-head--center reveal">
+            <span className="eyebrow">
+              <Icon name="truck" /> {dict.services.fleetEyebrow}
+            </span>
+            <h2>{dict.services.fleetTitle}</h2>
+            <p>{dict.services.fleetText}</p>
+          </div>
+          <div className="fleet-grid">
+            {config.fleet.map((vehicle) => {
+              const content = dict.fleetContent[vehicle.key];
+              return (
+                <div className="fleet-card reveal" key={vehicle.key}>
+                  <div className="fleet-card__media">
+                    <img src={`/assets/img/fleet/${vehicle.image}`} alt={content.title} loading="lazy" />
+                  </div>
+                  <div className="fleet-card__body">
+                    <h3>{content.title}</h3>
+                    <p>{content.text}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
