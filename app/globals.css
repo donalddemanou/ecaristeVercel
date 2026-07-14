@@ -794,6 +794,8 @@ h3, .h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy-900); }
     .main-nav__list a:not(.btn) { display: block; padding-block: 0.85rem; border-bottom: 1px solid var(--gray-100); }
     .main-nav__cta { margin-top: 1rem; }
     .main-nav__lang { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-100); width: 100%; }
+    /* Dans le tiroir mobile, le bouton est à gauche : on ouvre le menu vers la droite */
+    .main-nav__lang .lang-dropdown__menu { left: 0; right: auto; }
 
     .hero-badge span br { display: none; }
     .service-card__points { grid-template-columns: 1fr; }
